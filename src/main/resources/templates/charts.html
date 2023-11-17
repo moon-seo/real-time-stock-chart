@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Charts Page</title>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="/webjars/sockjs-client/1.0.2/sockjs.min.js"></script>
+    <script src="/webjars/stomp-websocket/2.3.3/stomp.min.js"></script>
+    <script src="/js/app.js">
+        // 지금 이 app.js가 실행이 안되고 있는 게 젤 문제 같음 ..
+        // + 실시간 크롤링도 못하고 잇긴 함 ㅋㅋ.
+        // var socket = new SockJS('/ws');
+        // var stompClient = Stomp.over(socket);
+        //
+        // stompClient.connect({}, function (frame) {
+        //     console.log('웹 소켓에 연결됨');
+        //     stompClient.subscribe('/topic/data-update', function (message) {
+        //         var updatedData = JSON.parse(message.body);
+        //         console.log('데이터 업데이트:', updatedData);
+        //         $('#dataDisplay').text(updatedData);
+        //     });
+        // });
+    </script>
+</head>
+<body>
+
+  <p id="dataDisplay" th:text="${data}"></p>
+
+  <form method="post" action="/update-data">
+      <button type="submit">데이터 업데이트</button>
+  </form>
+
+<!--  <table>-->
+<!--    <thead>-->
+<!--      <tr>-->
+<!--        <th>CODE</th>-->
+<!--        <th>NAME</th>-->
+<!--        <th>PRICE</th>-->
+<!--      </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--      <tr th:each="stock : ${stock}">-->
+<!--        <td th:text="${stock.code}"></td>-->
+<!--        <td th:text="${stock.name}"></td>-->
+<!--        <td th:text="${stock.price}"></td>-->
+<!--      </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+
+</body>
+</html>
